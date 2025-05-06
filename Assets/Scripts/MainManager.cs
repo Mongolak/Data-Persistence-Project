@@ -59,6 +59,14 @@ public class MainManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+
+            //Condicional para volver a cargar la escena del Menú principal.
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+
+                SceneManager.LoadScene(0);
+
+            }
         }
     }
 
@@ -72,5 +80,12 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+    }
+
+    public void StartNew()
+    {
+
+        SceneManager.LoadScene(1);
+
     }
 }
