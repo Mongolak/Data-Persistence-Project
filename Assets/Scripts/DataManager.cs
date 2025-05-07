@@ -6,6 +6,8 @@ public class DataManager : MonoBehaviour
 {
     // Start() and Update() methods deleted - we don't need them right now
 
+    public string nameText; //Variable para guardar el nombre del jugador.
+
     //Código para acceder desde cualquier otro script.
     public static DataManager Instance; 
 
@@ -25,4 +27,6 @@ public class DataManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
+
 }

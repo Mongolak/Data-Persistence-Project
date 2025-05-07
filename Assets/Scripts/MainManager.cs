@@ -19,6 +19,8 @@ public class MainManager : MonoBehaviour
 
     private bool m_GameOver = false;
 
+    public Text playerName; //Variable para el nombre del jugador.
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,18 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+
+        //Condición para compartir datos (nombre) entre escenas.
+        if(DataManager.Instance != null)
+        {
+
+            ReadName(DataManager.Instance.nameText);
+
+        }
+
+        //Mostrar el nombre al inicio de la partida.
+        GetName(DataManager.Instance.nameText);
+
     }
 
     private void Update()
@@ -81,8 +95,13 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        //Muestra el nombre y la puntuación obtenida en la partida.
+        playerName.text = "Best Score: " + DataManager.Instance.nameText + ": " + m_Points; 
+
     }
 
+    //Método para acceder al juego (escena 1).
     public void StartNew()
     {
 
@@ -90,6 +109,7 @@ public class MainManager : MonoBehaviour
 
     }
 
+    //Método para salir del juego en el caso, de que esté en pruebas.
     public void Exit()
     {
 
@@ -105,4 +125,23 @@ public class MainManager : MonoBehaviour
 #endif
 
     }
+
+    //Método para leer el nombre del jugador, que se guardará en la variable de DataManager (nameText).
+    public void ReadName(string name)
+    {
+
+        DataManager.Instance.nameText = name;
+
+        Debug.Log(DataManager.Instance.nameText);
+
+    }
+
+    //Método para mostrar el nombre del jugador al cambiar de escena.
+    public void GetName(string name)
+    {
+
+        playerName.text = "Best Score: " + name + ": 0 ";
+
+    }
+
 }
