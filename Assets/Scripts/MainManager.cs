@@ -44,13 +44,24 @@ public class MainManager : MonoBehaviour
         if(DataManager.Instance != null)
         {
 
-            ReadName(DataManager.Instance.nameText);
+            //ReadName(DataManager.Instance.nameText);
+
+            DataManager.Instance.LoadNameScore();
+
+            GetNameScore(DataManager.Instance.nameText, DataManager.Instance.bestScore);
 
         }
 
-        //Mostrar el nombre al inicio de la partida.
-        GetName(DataManager.Instance.nameText);
 
+        //Mostrar el nombre al inicio de la partida.
+        //GetName(DataManager.Instance.nameText);
+
+        //DataManager.Instance.LoadNameScore();
+
+        //Muestra el nombre del jugador durante la partida.
+        //GetName(DataManager.Instance.nameText);
+
+        //GetNameScore(DataManager.Instance.nameText, DataManager.Instance.bestScore);
     }
 
     private void Update()
@@ -70,6 +81,10 @@ public class MainManager : MonoBehaviour
         }
         else if (m_GameOver)
         {
+            
+            DataManager.Instance.SaveNameScore();
+
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -81,6 +96,9 @@ public class MainManager : MonoBehaviour
 
                 SceneManager.LoadScene(0);
 
+                ReadName(DataManager.Instance.nameText);
+
+                
             }
         }
     }
@@ -96,8 +114,18 @@ public class MainManager : MonoBehaviour
         m_GameOver = true;
         GameOverText.SetActive(true);
 
+        //Guardar la puntuación al finalizar la partida
+        if(DataManager.Instance != null)
+        {
+
+            DataManager.Instance.bestScore = m_Points;
+
+            DataManager.Instance.SaveNameScore();
+
+        }
+
         //Muestra el nombre y la puntuación obtenida en la partida.
-        playerName.text = "Best Score: " + DataManager.Instance.nameText + ": " + m_Points; 
+        playerName.text = "Best Score: " + DataManager.Instance.nameText + ": " + m_Points;
 
     }
 
@@ -112,6 +140,11 @@ public class MainManager : MonoBehaviour
     //Método para salir del juego en el caso, de que esté en pruebas.
     public void Exit()
     {
+   
+
+        DataManager.Instance.SaveNameScore();
+
+
 
 #if UNITY_EDITOR
 
@@ -130,9 +163,36 @@ public class MainManager : MonoBehaviour
     public void ReadName(string name)
     {
 
-        DataManager.Instance.nameText = name;
+        if(DataManager.Instance !=null)
+        {
 
-        Debug.Log(DataManager.Instance.nameText);
+            DataManager.Instance.nameText = name;
+
+            DataManager.Instance.SaveNameScore(); //Guarda el nombre inmediatamente.
+
+            Debug.Log(DataManager.Instance.nameText);
+
+        } 
+
+    }
+
+    //Método para guardar la puntuación.
+    public void ReadScore(int score)
+    {
+
+        if(DataManager.Instance!=null)
+        {
+            score = m_Points;
+
+            DataManager.Instance.bestScore = score;
+
+            DataManager.Instance.SaveNameScore(); //Guarda la puntuación inmediatamente.
+
+            Debug.Log(DataManager.Instance.bestScore);
+
+        }
+
+       
 
     }
 
@@ -144,9 +204,36 @@ public class MainManager : MonoBehaviour
 
     }
 
+    //Método para mostrar el nombre del jugador y la puntuación guardad al cambiar de escena.
+    public void GetNameScore(string name, int score)
+    {
+
+        if (score == 0)
+        {
+            
+            GetName(DataManager.Instance.nameText);
+
+        }
+        else if (score > 0)
+        {
+
+            playerName.text = "Best Score: " + name + ": " + score;
+           
+        }
+
+
+    }
+
     //Método para volver al menú.
     public void ReturnMenu()
     {
+
+        if(DataManager.Instance != null)
+        {
+
+            DataManager.Instance.SaveNameScore(); //Guardar antes de cambiar de escena.
+
+        }
 
         SceneManager.LoadScene(0);
 

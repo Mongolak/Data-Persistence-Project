@@ -1392,6 +1392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: 
+  bestScore: 6
 --- !u!4 &1550607624
 Transform:
   m_ObjectHideFlags: 0
