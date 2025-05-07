@@ -144,4 +144,20 @@ public class MainManager : MonoBehaviour
 
     }
 
+    //Método para volver al menú.
+    public void ReturnMenu()
+    {
+
+        SceneManager.LoadScene(0);
+
+    }
+
+    //Método para mostrar la escena de puntuaciones (High Scores).
+    public void ScoresScene()
+    {
+
+        SceneManager.LoadScene(2);
+
+    }
+
 }
