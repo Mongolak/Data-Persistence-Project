@@ -125,7 +125,7 @@ public class MainManager : MonoBehaviour
         }
 
         //Muestra el nombre y la puntuación obtenida en la partida.
-        playerName.text = "Best Score: " + DataManager.Instance.nameText + ": " + m_Points;
+        playerName.text = "Best Score: " + DataManager.Instance.nameText + ": " + DataManager.Instance.bestScore;
 
     }
 
@@ -152,6 +152,8 @@ public class MainManager : MonoBehaviour
 
 #else
     
+    
+
     Applicattion.Quit();
     
     

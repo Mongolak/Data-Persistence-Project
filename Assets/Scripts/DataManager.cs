@@ -30,7 +30,7 @@ public class DataManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        //LoadNameScore();
+        LoadNameScore();//Carga los datos de la partida anterior.
     }
 
 
