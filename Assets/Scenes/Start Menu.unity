@@ -248,6 +248,7 @@ MonoBehaviour:
   ScoreText: {fileID: 0}
   GameOverText: {fileID: 0}
   playerName: {fileID: 0}
+  actualNameInput: {fileID: 1135327559}
 --- !u!1 &149023911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,19 +1004,7 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 13769159}
-        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
-        m_MethodName: ReadName
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1608,6 +1597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: 
   bestScore: 0
+  actualName: 
 --- !u!4 &1550607624
 Transform:
   m_ObjectHideFlags: 0

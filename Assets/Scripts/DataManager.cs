@@ -11,6 +11,8 @@ public class DataManager : MonoBehaviour
 
     public int bestScore; //Variable para guardar la puntuación del jugador.
 
+    public string actualName; //Variable para guardar el nombre del jugador.
+
     //Código para acceder desde cualquier otro script.
     public static DataManager Instance; 
 
@@ -30,7 +32,8 @@ public class DataManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        LoadNameScore();//Carga los datos de la partida anterior.
+        LoadNameScore();//Carga los datos de la partida anterior entre escenas.
+
     }
 
 
@@ -88,6 +91,19 @@ public class DataManager : MonoBehaviour
             bestScore = data.bestScoreGame;
 
         }
+
+    }
+
+
+    //Método para leer el nombre del jugador, que se guardará en la variable nameText.
+    //Se accede desde el InputField de la escena Start Menu.
+    public void SetActualName(string name)
+    {
+
+        actualName = name;
+
+        Debug.Log("Ahora actual name es : " + name);
+        
 
     }
 }
