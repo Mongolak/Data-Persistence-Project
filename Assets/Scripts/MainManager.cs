@@ -249,4 +249,13 @@ public class MainManager : MonoBehaviour
 
     }
 
+    //Método para mostrar la escena de ajustes (Settings).
+
+    public void SettingsSecene()
+    {
+
+        SceneManager.LoadScene(3);
+
+    }
+
 }
