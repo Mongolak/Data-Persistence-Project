@@ -13,7 +13,6 @@ public class Settings : MonoBehaviour
     void Start()
     {
 
-        
 
     }
 
@@ -39,5 +38,11 @@ public class Settings : MonoBehaviour
         DataSettingsManager.Instance.setActualColor(color);
 
     }
+    public void SaveActualSettings()
+    {
+        Debug.Log("Entra en setBackgroundColor en Settings");
 
+        DataSettingsManager.Instance.SaveSettings();
+
+    }
 }

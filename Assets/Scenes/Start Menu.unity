@@ -1576,6 +1576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550607624}
   - component: {fileID: 1550607623}
+  - component: {fileID: 1550607625}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -1612,6 +1613,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1550607625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550607622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c886bf3f1f71c041a949b9ccdd89192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColorActual: {r: 0, g: 0, b: 0, a: 0}
+  greenColor: {r: 0, g: 0, b: 0, a: 0}
+  blueColor: {r: 0, g: 0, b: 0, a: 0}
+  orangeColor: {r: 0, g: 0, b: 0, a: 0}
+  blackColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1572691381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,10 +1893,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSettings: {fileID: 1681541313}
-  greenColor: {r: 0, g: 0, b: 0, a: 0}
-  blueColor: {r: 0, g: 0, b: 0, a: 0}
-  orangeColor: {r: 0, g: 0, b: 0, a: 0}
-  blackColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1942308976
 GameObject:
   m_ObjectHideFlags: 0
