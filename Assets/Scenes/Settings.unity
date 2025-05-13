@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 351328017}
   - component: {fileID: 351328016}
   - component: {fileID: 351328019}
+  - component: {fileID: 351328020}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -359,6 +360,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &351328020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351328015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa1184ba80d94242944ff082c580f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraSettings: {fileID: 351328017}
 --- !u!1 &434532786
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +455,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 434532789}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351328020}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: setBackgroundColor
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &434532789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,7 +748,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 717840335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351328020}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: setBackgroundColor
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &717840335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -736,7 +774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15924391, g: 0.4339623, b: 0.08802065, a: 1}
+  m_Color: {r: 0.05294378, g: 0.1509434, b: 0.026343895, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1784,7 +1822,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1414987326}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351328020}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: setBackgroundColor
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1414987326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1798,7 +1848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4716981, g: 0.2625228, b: 0.064524755, a: 1}
+  m_Color: {r: 0.3018868, g: 0.16374674, b: 0.032751877, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1902,6 +1952,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526747966}
   m_CullTransparentMesh: 1
+--- !u!1 &1686726899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1686726900}
+  - component: {fileID: 1686726901}
+  m_Layer: 0
+  m_Name: DataSettingsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1686726900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686726899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 644, y: 200.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1686726901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686726899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c886bf3f1f71c041a949b9ccdd89192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColorActual: {r: 0, g: 0, b: 0, a: 0}
+  greenColor: {r: 0.05294378, g: 0.1509434, b: 0.026343895, a: 1}
+  blueColor: {r: 0.015619445, g: 0.23713633, b: 0.254717, a: 1}
+  orangeColor: {r: 0.3018868, g: 0.16374674, b: 0.032751877, a: 1}
+  blackColor: {r: 0.03773582, g: 0.03709572, b: 0.036489826, a: 1}
 --- !u!1 &1761046722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,7 +2082,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1761046725}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351328020}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: setBackgroundColor
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1761046725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,7 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19686721, g: 0.507506, b: 0.5283019, a: 1}
+  m_Color: {r: 0.015619445, g: 0.23713633, b: 0.254717, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

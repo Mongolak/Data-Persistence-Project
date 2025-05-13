@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using static UnityEditor.SceneView;
+using UnityEngine.SocialPlatforms;
 
 public class DataManager : MonoBehaviour
 {
     // Start() and Update() methods deleted - we don't need them right now
 
-    public string nameText; //Variable para guardar el nombre del jugador.
+    public string nameText; //Variable para guardar el nombre del jugador, si la puntuación es más alta.
 
     public int bestScore; //Variable para guardar la puntuación del jugador.
 
     public string actualName; //Variable para guardar el nombre del jugador.
+
+    
 
     //Código para acceder desde cualquier otro script.
     public static DataManager Instance; 
@@ -106,4 +110,7 @@ public class DataManager : MonoBehaviour
         
 
     }
+
+   
+
 }

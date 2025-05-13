@@ -23,7 +23,7 @@ public class MainManager : MonoBehaviour
 
     public InputField actualNameInput; //Variable para el almacenar el valor del InputField.
 
-
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -217,6 +217,8 @@ public class MainManager : MonoBehaviour
 
             //DataManager.Instance.SaveNameScore(); //Guardar antes de cambiar de escena. No es necesario.
 
+
+
         }
 
         SceneManager.LoadScene(0);
@@ -234,7 +236,7 @@ public class MainManager : MonoBehaviour
 
     //Método para mostrar la escena de ajustes (Settings).
     //Se accede desde el botón "Settings" de la escena Start Menu (escena 0).
-    public void SettingsSecene()
+    public void SettingsScene()
     {
 
         SceneManager.LoadScene(3);
