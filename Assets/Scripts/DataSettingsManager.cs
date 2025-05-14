@@ -16,7 +16,10 @@ public class DataSettingsManager : MonoBehaviour
     private Color blackColor = Color.black;
     
     
-    private int colorSetting; // tipo de color, 0 = verde, 1=...
+    private int colorSetting; //Variable para el tipo de color, 0 = verde, 1=...
+
+    public bool isSoundActive; //Variable para activar o desactivar el sonido 
+
 
     //Código para acceder desde cualquier otro script. Patrón singleton.
     public static DataSettingsManager Instance;
@@ -42,9 +45,10 @@ public class DataSettingsManager : MonoBehaviour
 
     //Método para obtener el color escogido a partir de hacer clic en los botones.
     
-    public void setActualColor(int color)
+    public void SetActualColor(int color)
     {
         colorSetting = color;
+
         switch (color)
         {
 
@@ -75,6 +79,16 @@ public class DataSettingsManager : MonoBehaviour
         }
 
     }
+
+    //Método para activar el sonido.
+    public void ActiveSoundBall(bool sound)
+    {
+
+        isSoundActive = sound;
+   
+    }
+
+
     //Añadir una clase Serializable para guardar los datos.
     [System.Serializable]
     class SaveDataSettings
@@ -84,17 +98,19 @@ public class DataSettingsManager : MonoBehaviour
 
         public int colorSelection;
 
+        public Color buttonColorSound;
+
     }
 
-    //Agregamos un método para guardar el nombre.
+    //Agregamos un método para guardar el sonido y el color.
     public void SaveSettings()
     {
         Debug.Log("Llama a save settings");
         SaveDataSettings data = new SaveDataSettings
         {
 
-            soundSelection = false,
-            colorSelection = colorSetting
+            soundSelection = isSoundActive,
+            colorSelection = colorSetting,
 
         };
 
@@ -110,7 +126,7 @@ public class DataSettingsManager : MonoBehaviour
 
     }
 
-    //Agregamos un método para cargar el nombre.
+    //Agregamos un método para cargar el sonido y el color.
     public void LoadSettings()
     {
         Debug.Log("Llama a LOAD settings");
@@ -126,7 +142,9 @@ public class DataSettingsManager : MonoBehaviour
 
             // = data.soundSelection;
 
-            setActualColor(data.colorSelection);
+            SetActualColor(data.colorSelection);
+
+            ActiveSoundBall(data.soundSelection);
 
         }
 

@@ -458,7 +458,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 351328020}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: setBackgroundColor
+        m_MethodName: SetBackgroundColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -751,7 +751,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 351328020}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: setBackgroundColor
+        m_MethodName: SetBackgroundColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1214,7 +1214,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1005997909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351328020}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: SetSoundBall
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1005997909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1837,7 +1849,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 351328020}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: setBackgroundColor
+        m_MethodName: SetBackgroundColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2008,10 +2020,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundColorActual: {r: 0, g: 0, b: 0, a: 0}
-  greenColor: {r: 0.05294378, g: 0.1509434, b: 0.026343895, a: 1}
-  blueColor: {r: 0.015619445, g: 0.23713633, b: 0.254717, a: 1}
-  orangeColor: {r: 0.3018868, g: 0.16374674, b: 0.032751877, a: 1}
-  blackColor: {r: 0.03773582, g: 0.03709572, b: 0.036489826, a: 1}
+  isSoundActive: 0
+  soundButton: {fileID: 0}
+  colorButton: {r: 0.38322136, g: 0.46226418, b: 0.14609292, a: 1}
 --- !u!1 &1761046722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,7 +2108,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 351328020}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: setBackgroundColor
+        m_MethodName: SetBackgroundColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2227,7 +2238,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1814038110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351328020}
+        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
+        m_MethodName: SetSoundBall
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1814038110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2631,6 +2654,7 @@ MonoBehaviour:
   GameOverText: {fileID: 0}
   playerName: {fileID: 0}
   actualNameInput: {fileID: 0}
+  soundBall: {fileID: 0}
 --- !u!1 &2062582892
 GameObject:
   m_ObjectHideFlags: 0

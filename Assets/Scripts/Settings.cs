@@ -31,18 +31,29 @@ public class Settings : MonoBehaviour
     }
     //Método para acceder al color de fondo.
     //Se accede desde los botones de color, del Canvas en la escena "Settings".
-    public void setBackgroundColor(int color)
+    public void SetBackgroundColor(int color)
     {
         Debug.Log("Entra en setBackgroundColor en Settings");
 
-        DataSettingsManager.Instance.setActualColor(color);
+        DataSettingsManager.Instance.SetActualColor(color);
 
     }
+    //Método para guardar el color de fondo.
+    //Se accede desde el botón Save de la escena "Settings".
     public void SaveActualSettings()
     {
         Debug.Log("Entra en setBackgroundColor en Settings");
 
         DataSettingsManager.Instance.SaveSettings();
+
+    }
+
+    //Método para acceder al sonido.
+    //Se accede desde el botón "Yes" y "No" de la escena "Settings".
+    public void SetSoundBall(bool sound)
+    {
+
+        DataSettingsManager.Instance.ActiveSoundBall(sound);
 
     }
 }

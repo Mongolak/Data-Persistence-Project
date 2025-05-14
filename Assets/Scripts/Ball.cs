@@ -13,6 +13,8 @@ public class Ball : MonoBehaviour
     public AudioClip brickSound;
 
     private AudioSource audioSource;
+
+    private bool activeSound;
     
     void Start()
     {
@@ -33,6 +35,8 @@ public class Ball : MonoBehaviour
         {
             Debug.LogError("No se encontró un AudioSource en la bola o en la escena.");
         }
+
+        activeSound = DataSettingsManager.Instance.isSoundActive;
 
     }
     
@@ -63,7 +67,7 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
-        if(collision.gameObject.CompareTag("Paddle"))
+        if(collision.gameObject.CompareTag("Paddle") && activeSound)
         {
 
             audioSource.PlayOneShot(paddleSound);
@@ -72,7 +76,7 @@ public class Ball : MonoBehaviour
 
         }
 
-        if(collision.gameObject.CompareTag("Brick"))
+        if(collision.gameObject.CompareTag("Brick") && activeSound)
         {
 
             audioSource.PlayOneShot(brickSound);
