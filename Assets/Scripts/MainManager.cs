@@ -23,7 +23,8 @@ public class MainManager : MonoBehaviour
 
     public InputField actualNameInput; //Variable para el almacenar el valor del InputField.
 
-   
+    public AudioClip soundBall; //Variable para el sonido inicial de la bola.
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +69,15 @@ public class MainManager : MonoBehaviour
 
                 Ball.transform.SetParent(null);
                 Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
+
+                //Añadir el sonido inicial al pulsar Space.
+                if (this.GetComponent<AudioSource>().isPlaying == false)
+                {
+
+                    this.GetComponent<AudioSource>().PlayOneShot(soundBall);
+
+                }
+
             }
         }
         else if (m_GameOver)

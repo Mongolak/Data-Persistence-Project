@@ -1,15 +1,39 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Media;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
     private Rigidbody m_Rigidbody;
 
+    public AudioClip paddleSound;
+
+    public AudioClip brickSound;
+
+    private AudioSource audioSource;
+    
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+
+        audioSource = GetComponent<AudioSource>();
+
+        //Asegurar que se encuentra el componente AudioSource:
+
+        // Si no se encuentra, buscar en el objeto padre
+        if (audioSource == null)
+        {
+            audioSource = FindObjectOfType<AudioSource>();
+        }
+
+        // Verificar si el AudioSource sigue siendo null
+        if (audioSource == null)
+        {
+            Debug.LogError("No se encontró un AudioSource en la bola o en la escena.");
+        }
+
     }
     
     private void OnCollisionExit(Collision other)
@@ -32,5 +56,32 @@ public class Ball : MonoBehaviour
         }
 
         m_Rigidbody.velocity = velocity;
+
+        
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if(collision.gameObject.CompareTag("Paddle"))
+        {
+
+            audioSource.PlayOneShot(paddleSound);
+
+            Debug.Log("Rebota con el paddle");
+
+        }
+
+        if(collision.gameObject.CompareTag("Brick"))
+        {
+
+            audioSource.PlayOneShot(brickSound);
+
+            Debug.Log("Rebota con el brick");
+
+        }
+
+    }
+
+
 }
