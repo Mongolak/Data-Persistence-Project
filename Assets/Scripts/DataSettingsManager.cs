@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DataSettingsManager : MonoBehaviour
 {
-
+    //Variables para cambiar el color de fondo de las escenas.
     public Color backgroundColorActual = Color.black; //Variable para guardar el color de fondo.
 
     //Variables para escoger el color.
@@ -14,12 +14,20 @@ public class DataSettingsManager : MonoBehaviour
     private Color blueColor = new Color(0.1968672f, 0.507506f, 0.5283019f);
     private Color orangeColor = new Color(0.4716981f, 0.2625228f, 0.06452475f);
     private Color blackColor = Color.black;
-    
-    
+     
     private int colorSetting; //Variable para el tipo de color, 0 = verde, 1=...
 
-    public bool isSoundActive; //Variable para activar o desactivar el sonido 
+    //Variable para activar o desactivar el sonido.
+    public bool isSoundActive;
 
+    //Variables para cambiar el color de los botones del sonido.
+    public Color colorSoundButtonYes; 
+    public Color colorSoundButtonNo; 
+
+    private int colorButtonSetting; //Variable para el tipo de color de los botones (0 o 1).
+
+    public Color darkGreen;
+    public Color lightGreen;
 
     //Código para acceder desde cualquier otro script. Patrón singleton.
     public static DataSettingsManager Instance;
@@ -88,6 +96,32 @@ public class DataSettingsManager : MonoBehaviour
    
     }
 
+    //Método para obtener el color escogido en los botones del sonido.
+    
+    public void SetColorButton(int  color)
+    {
+
+        colorButtonSetting = color;
+
+        if(color == 0)
+        {
+
+            colorSoundButtonYes = lightGreen;
+
+            colorSoundButtonNo = darkGreen;
+
+
+        } else if(color == 1)
+        {
+           
+            colorSoundButtonYes = darkGreen;
+
+            colorSoundButtonNo = lightGreen;
+
+        }
+
+    }
+
 
     //Añadir una clase Serializable para guardar los datos.
     [System.Serializable]
@@ -97,8 +131,6 @@ public class DataSettingsManager : MonoBehaviour
         public bool soundSelection;
 
         public int colorSelection;
-
-        public Color buttonColorSound;
 
     }
 

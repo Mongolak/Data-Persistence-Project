@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Este script se incluye en la "Main Camera" de todas las escenas, para poder cambiar el color de fondo y el sonido.
 public class Settings : MonoBehaviour
@@ -13,6 +14,7 @@ public class Settings : MonoBehaviour
     void Start()
     {
 
+       
 
     }
 
@@ -24,7 +26,7 @@ public class Settings : MonoBehaviour
         {
             //Debug.Log("Entra en Update Settings");
             cameraSettings.backgroundColor = DataSettingsManager.Instance.backgroundColorActual;
-
+           
         }
 
 
@@ -38,15 +40,6 @@ public class Settings : MonoBehaviour
         DataSettingsManager.Instance.SetActualColor(color);
 
     }
-    //Método para guardar el color de fondo.
-    //Se accede desde el botón Save de la escena "Settings".
-    public void SaveActualSettings()
-    {
-        Debug.Log("Entra en setBackgroundColor en Settings");
-
-        DataSettingsManager.Instance.SaveSettings();
-
-    }
 
     //Método para acceder al sonido.
     //Se accede desde el botón "Yes" y "No" de la escena "Settings".
@@ -56,4 +49,16 @@ public class Settings : MonoBehaviour
         DataSettingsManager.Instance.ActiveSoundBall(sound);
 
     }
+
+    //Método para guardar el color de fondo y el sonido.
+    //Se accede desde el botón Save de la escena "Settings".
+    public void SaveActualSettings()
+    {
+        Debug.Log("Entra en setBackgroundColor en Settings");
+
+        DataSettingsManager.Instance.SaveSettings();
+
+    }
+
+    
 }
