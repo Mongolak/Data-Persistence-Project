@@ -70,8 +70,8 @@ public class MainManager : MonoBehaviour
                 Ball.transform.SetParent(null);
                 Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
 
-                //Añadir el sonido inicial al pulsar Space.
-                if (this.GetComponent<AudioSource>().isPlaying == false)
+                //Añadir el sonido inicial al pulsar Space, si el sonido está activado.
+                if (this.GetComponent<AudioSource>().isPlaying == false && DataSettingsManager.Instance.isSoundActive)
                 {
 
                     this.GetComponent<AudioSource>().PlayOneShot(soundBall);
