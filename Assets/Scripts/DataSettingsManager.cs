@@ -132,6 +132,8 @@ public class DataSettingsManager : MonoBehaviour
 
         public int colorSelection;
 
+        public int colorSoundSelection;
+
     }
 
     //Agregamos un método para guardar el sonido y el color.
@@ -143,6 +145,7 @@ public class DataSettingsManager : MonoBehaviour
 
             soundSelection = isSoundActive,
             colorSelection = colorSetting,
+            colorSoundSelection = colorButtonSetting,
 
         };
 
@@ -177,6 +180,8 @@ public class DataSettingsManager : MonoBehaviour
             SetActualColor(data.colorSelection);
 
             ActiveSoundBall(data.soundSelection);
+
+            SetColorButton(data.colorSoundSelection);
 
         }
 
