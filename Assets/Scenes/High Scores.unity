@@ -752,6 +752,8 @@ GameObject:
   - component: {fileID: 524447404}
   - component: {fileID: 524447403}
   - component: {fileID: 524447407}
+  - component: {fileID: 524447408}
+  - component: {fileID: 524447409}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -863,6 +865,72 @@ MonoBehaviour:
   GameOverText: {fileID: 0}
   playerName: {fileID: 0}
   actualNameInput: {fileID: 0}
+  soundBall: {fileID: 0}
+--- !u!114 &524447408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524447402}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8812a8dc8641d8b4eaf994ca154f9b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  names:
+  - Joe
+  - Peter
+  - Lisa
+  - Maggie
+  - Bart
+  namePlayers:
+  - {fileID: 1218328705}
+  - {fileID: 905231656}
+  - {fileID: 467907139}
+  - {fileID: 1524633658}
+  - {fileID: 961577955}
+  scores: 0800000002000000050000000700000009000000
+  scorePlayers:
+  - {fileID: 685690351}
+  - {fileID: 52074685}
+  - {fileID: 184137305}
+  - {fileID: 2077625315}
+  - {fileID: 1007356057}
+  namePlayer: 
+  actualScore: 0
+--- !u!114 &524447409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524447402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e1d1e7183670ee4eb4eefe48f5263c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePlayer1: Joe
+  namePlayer2: Peter
+  namePlayer3: Kyle
+  namePlayer4: Anne
+  namePlayer5: John
+  scorePlayer1: 50
+  scorePlayer2: 25
+  scorePlayer3: 15
+  scorePlayer4: 10
+  scorePlayer5: 5
+  player1: {fileID: 1218328705}
+  player2: {fileID: 905231656}
+  player3: {fileID: 467907139}
+  player4: {fileID: 1524633658}
+  player5: {fileID: 961577955}
+  score1: {fileID: 685690351}
+  score2: {fileID: 52074685}
+  score3: {fileID: 184137305}
+  score4: {fileID: 2077625315}
+  score5: {fileID: 1007356057}
 --- !u!1 &564755983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1556,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1157464219}
   - component: {fileID: 1157464218}
+  - component: {fileID: 1157464220}
+  - component: {fileID: 1157464221}
   m_Layer: 0
   m_Name: DataSettings
   m_TagString: Untagged
@@ -1508,6 +1578,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundColorActual: {r: 0, g: 0, b: 0, a: 1}
+  isSoundActive: 0
+  colorSoundButtonYes: {r: 0.38322136, g: 0.46226418, b: 0.14609292, a: 1}
+  colorSoundButtonNo: {r: 0.38322136, g: 0.46226418, b: 0.14609292, a: 1}
+  darkGreen: {r: 0.38322136, g: 0.46226418, b: 0.14609292, a: 1}
+  lightGreen: {r: 0.66797906, g: 0.7529412, b: 0.40784314, a: 1}
 --- !u!4 &1157464219
 Transform:
   m_ObjectHideFlags: 0
@@ -1522,6 +1597,45 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1157464220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157464217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33aff2ed4fc9f234985b7f1b5b834369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: 
+  bestScore: 0
+  actualName: 
+  newScore: 0
+  newName: 
+--- !u!114 &1157464221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157464217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8355bfa1d6885b44fa17e0a4849841f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePlayer1: Jaimito
+  namePlayer2: Jorgito
+  namePlayer3: Juanito
+  namePlayer4: Carlitos
+  namePlayer5: Pedrito
+  scorePlayer1: 50
+  scorePlayer2: 25
+  scorePlayer3: 15
+  scorePlayer4: 10
+  scorePlayer5: 5
 --- !u!1 &1218328703
 GameObject:
   m_ObjectHideFlags: 0

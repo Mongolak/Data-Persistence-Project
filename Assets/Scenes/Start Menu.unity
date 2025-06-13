@@ -1578,6 +1578,7 @@ GameObject:
   - component: {fileID: 1550607624}
   - component: {fileID: 1550607623}
   - component: {fileID: 1550607625}
+  - component: {fileID: 1550607626}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -1600,6 +1601,8 @@ MonoBehaviour:
   nameText: 
   bestScore: 0
   actualName: 
+  newScore: 0
+  newName: 
 --- !u!4 &1550607624
 Transform:
   m_ObjectHideFlags: 0
@@ -1632,6 +1635,28 @@ MonoBehaviour:
   colorSoundButtonNo: {r: 0.38322136, g: 0.46226418, b: 0.14609292, a: 1}
   darkGreen: {r: 0.38322136, g: 0.46226418, b: 0.14609292, a: 1}
   lightGreen: {r: 0.66797906, g: 0.7529412, b: 0.40784314, a: 1}
+--- !u!114 &1550607626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550607622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8355bfa1d6885b44fa17e0a4849841f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namePlayer1: 
+  namePlayer2: 
+  namePlayer3: 
+  namePlayer4: 
+  namePlayer5: 
+  scorePlayer1: 0
+  scorePlayer2: 0
+  scorePlayer3: 0
+  scorePlayer4: 0
+  scorePlayer5: 0
 --- !u!1 &1572691381
 GameObject:
   m_ObjectHideFlags: 0

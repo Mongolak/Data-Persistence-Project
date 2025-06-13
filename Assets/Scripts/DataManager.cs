@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using static UnityEditor.SceneView;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.UI;
 
 public class DataManager : MonoBehaviour
 {
@@ -11,10 +12,15 @@ public class DataManager : MonoBehaviour
 
     public string nameText; //Variable para guardar el nombre del jugador, si la puntuación es más alta.
 
-    public int bestScore; //Variable para guardar la puntuación del jugador.
+    public int bestScore; //Variable para guardar la puntuación del jugador, que se mostrará en la escena "main".
 
     public string actualName; //Variable para guardar el nombre del jugador.
 
+
+    //Variables para poder mostrar los nombres y las puntuaciones en la escena "HighScore".
+    public int newScore; //Variable que servirá para guardar la puntuación actual.
+
+    public string newName; //Variable para guardar el nombre del jugador actual.
     
 
     //Código para acceder desde cualquier otro script.
@@ -38,7 +44,10 @@ public class DataManager : MonoBehaviour
 
         LoadNameScore();//Carga los datos de la partida anterior entre escenas.
 
+
     }
+
+   
 
 
     //Añadir una clase Serializable para guardar los datos.
@@ -50,6 +59,7 @@ public class DataManager : MonoBehaviour
 
         public int bestScoreGame;
 
+
     }
 
     //Agregamos un método para guardar el nombre.
@@ -60,7 +70,7 @@ public class DataManager : MonoBehaviour
         {
 
             nameTextGame = nameText,
-            bestScoreGame = bestScore
+            bestScoreGame = bestScore,
 
         };
 
@@ -94,6 +104,7 @@ public class DataManager : MonoBehaviour
 
             bestScore = data.bestScoreGame;
 
+
         }
 
     }
@@ -110,7 +121,5 @@ public class DataManager : MonoBehaviour
         
 
     }
-
-   
 
 }

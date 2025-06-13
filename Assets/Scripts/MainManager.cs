@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
@@ -53,7 +54,13 @@ public class MainManager : MonoBehaviour
 
         }
 
+        if(DataHighScoresManager.Instance != null)
+        {
 
+            DataHighScoresManager.Instance.LoadNameHighScore();
+
+
+        }
     }
 
     private void Update()
@@ -113,40 +120,45 @@ public class MainManager : MonoBehaviour
         m_GameOver = true;
         GameOverText.SetActive(true);
 
-        int oldScore;
+        int oldScore = 0; //Si no se utiliza el método "WinnerScorePlayer", hay que comentar la variable (aparece un aviso en la consola).
 
+        DataManager.Instance.newScore = m_Points;
+
+        Debug.Log("Guarda el nombre actual : " + DataManager.Instance.actualName);
+
+        DataManager.Instance.SaveNameScore();
+
+        Debug.Log("Guardado SaveNameScore el nombre actual : " + DataManager.Instance.actualName);
+
+
+        //Compara la posición del jugador, dependiendo de las puntuaciones.
+        //Está vinculada a la escena de HighScores.
+        CompareHighScores();
+
+        /* AVISO PARA RESETEAR NOMBRES Y PUNTUACIONES DE LA ESCENA HIGHSCORE: Es necesario seguir los siguientes pasos:
+         * 
+         * Paso 1: Comentar el método "CompareHighScores(), que aparece anteriormente, de este script.
+         * Paso 2: Quitar el método comentado "ResetHighScores" que está dentro del método "ScoreScene" de este script.
+         * Paso 3: Quitar los valores comentados por defecto del método "SaveNameHighScore" y comentar los valores dinámicos 
+         *         que se encuentran en el script "DataHighScoresManager".
+         * Paso 4: En el caso de querer resetear también la PUNTUACIÓN MÁXIMA, quitar el método comentado "ResetScore" que aparece a continuación, bajo
+         *         el método "WinnerScorePlayer(oldScore) de este script.
+         */
+
+           
         //Guardar la puntuación al finalizar la partida
         if (DataManager.Instance != null)
         {
 
-            oldScore = DataManager.Instance.bestScore;
+            //LLamar al método para comprobar si la puntuación es más alta que la del anterior ganador.
+            WinnerScorePlayer(oldScore);
 
-            if (m_Points > oldScore)
-            {
 
-                DataManager.Instance.bestScore = m_Points;
+            //LLamar la método para reiniciar el contador de puntos.
+            //ResetScore();
 
-                //Se añadirá el nuevo nombre a la variable "nameText" del script DataManager, para después ser guardado en JSON.
-                DataManager.Instance.nameText = DataManager.Instance.actualName;
-
-                DataManager.Instance.SaveNameScore();
-
-                Debug.Log("Añadimos: " + DataManager.Instance.actualName + " y " + m_Points);
-
-                SetNameScore(DataManager.Instance.actualName, m_Points);
-
-            }
-
-            //Código para reiniciar el contador de puntos.
-             
-            /*DataManager.Instance.bestScore = m_Points;
-
-            DataManager.Instance.nameText = DataManager.Instance.actualName;
-
-            DataManager.Instance.SaveNameScore();*/
 
         }
-
 
     }
 
@@ -242,6 +254,10 @@ public class MainManager : MonoBehaviour
 
         SceneManager.LoadScene(2);
 
+        //Código para resetear los nombres y las puntuaciones por defecto.
+        //IMPORTANTE: Recordar cambiar los valores de las variables por defecto en el método "SaveNameHighScore" del script "DataHighScoresManager".
+        //ResetHihgScores();
+
     }
 
     //Método para mostrar la escena de ajustes (Settings).
@@ -252,5 +268,77 @@ public class MainManager : MonoBehaviour
         SceneManager.LoadScene(3);
 
     }
+
+    //Método para guardar la puntuación más alta.
+    public void WinnerScorePlayer(int score)
+    {
+
+        //Guardar la puntuación al finalizar la partida
+        if (DataManager.Instance != null)
+        {
+
+            score = DataManager.Instance.bestScore;
+
+            if (m_Points > score)
+            {
+
+                DataManager.Instance.bestScore = m_Points;
+
+                //Se añadirá el nuevo nombre a la variable "nameText" del script DataManager, para después ser guardado en JSON.
+                DataManager.Instance.nameText = DataManager.Instance.actualName;
+
+                DataManager.Instance.SaveNameScore();
+
+                Debug.Log("Añadimos: " + DataManager.Instance.actualName + " y " + m_Points);
+
+                SetNameScore(DataManager.Instance.actualName, m_Points);
+
+            }
+
+            //LLamar la método para reiniciar el contador de puntos.
+
+            //ResetScore();
+
+
+        }
+
+
+    }
+
+    //Método para resetear la puntuación.
+    public void ResetScore()
+    {
+
+        DataManager.Instance.bestScore = m_Points;
+
+        DataManager.Instance.nameText = DataManager.Instance.actualName;
+
+        DataManager.Instance.SaveNameScore();
+
+    }
+
+    //Método para resetear los HihgScores.
+    public void ResetHihgScores()
+    {
+
+        //Para resetear los nombres y puntuaciones, hay que utilizar las variables por defecto en el método SaveNameHighScore().
+
+        DataHighScoresManager.Instance.SaveNameHighScore();
+
+
+    }
+
+    //Método para llamar a las comparaciones del HighScore.
+    public void CompareHighScores()
+    {
+
+        DataManager.Instance.LoadNameScore();
+
+        DataHighScoresManager.Instance.SetRankingScores(DataManager.Instance.actualName, m_Points);
+
+        DataHighScoresManager.Instance.SaveNameHighScore();
+
+    }
+
 
 }
